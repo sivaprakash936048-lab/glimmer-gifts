@@ -36,7 +36,7 @@ export const ProductCard = ({ product, onOpen, onAdd }: Props) => {
             {product.colors.slice(0, 3).map((c, i) => (
               <span key={i} className="h-3 w-3 rounded-full ring-1 ring-border" style={{ background: c }} />
             ))}
-            <span className="ml-2 font-serif text-lg text-foreground">${product.price}</span>
+            <span className="ml-2 font-serif text-lg text-foreground">₹{product.price.toLocaleString("en-IN")}</span>
           </div>
         </div>
         <button
