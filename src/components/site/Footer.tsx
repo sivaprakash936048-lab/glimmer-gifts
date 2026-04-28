@@ -1,12 +1,20 @@
+import logo from "@/assets/logo.png";
+
 export const Footer = () => {
   return (
     <footer className="relative border-t border-border bg-secondary/30">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <div className="font-serif text-3xl text-foreground">petal<span className="text-primary">.</span></div>
-            <p className="mt-3 max-w-sm text-sm text-muted-foreground leading-relaxed">
-              A small, 3D-first gift boutique. Bracelets, pens and keychains worth keeping.
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Swapn's Gift World" className="h-12 w-12 object-contain" />
+              <div className="flex flex-col leading-none">
+                <span className="font-serif text-2xl text-foreground">Swapn's <span className="text-primary">Gift</span></span>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-1">world</span>
+              </div>
+            </div>
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
+              A 3D-first gift boutique. Curated bracelets, pens and keychains — wrapped with care.
             </p>
             <form className="mt-6 flex max-w-sm gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
