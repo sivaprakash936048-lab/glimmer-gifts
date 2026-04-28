@@ -28,7 +28,7 @@ export const CartDrawer = () => {
               {items.map(({ product, qty }) => (
                 <li key={product.id} className="flex gap-4 rounded-2xl glass p-3 shadow-soft">
                   <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-secondary/40 to-accent/30">
-                    <ProductCanvas category={product.category} colors={product.colors} className="absolute inset-0" scale={0.85} />
+                    <ProductCanvas category={product.category} colors={product.colors} image={product.image} className="absolute inset-0" scale={0.85} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">

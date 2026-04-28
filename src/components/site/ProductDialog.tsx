@@ -23,6 +23,7 @@ export const ProductDialog = ({ product, onClose }: Props) => {
               <ProductCanvas
                 category={product.category}
                 colors={product.colors}
+                image={product.image}
                 interactive
                 className="absolute inset-0"
               />
