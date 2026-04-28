@@ -50,7 +50,7 @@ export const CartDrawer = () => {
                           <Plus className="h-3 w-3" />
                         </button>
                       </div>
-                      <span className="font-serif text-base text-foreground">${product.price * qty}</span>
+                      <span className="font-serif text-base text-foreground">₹{(product.price * qty).toLocaleString("en-IN")}</span>
                     </div>
                   </div>
                 </li>
@@ -63,9 +63,9 @@ export const CartDrawer = () => {
           <div className="border-t border-border p-6 space-y-4">
             <div className="flex items-center justify-between text-sm">
               <span className="text-muted-foreground">Subtotal</span>
-              <span className="font-serif text-2xl text-foreground">${total}</span>
+              <span className="font-serif text-2xl text-foreground">₹{total.toLocaleString("en-IN")}</span>
             </div>
-            <p className="text-xs text-muted-foreground">Free gift wrap & shipping over $60.</p>
+            <p className="text-xs text-muted-foreground">Free gift wrap & shipping over ₹2,000.</p>
             <button className="w-full rounded-full bg-foreground py-3.5 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5">
               Checkout
             </button>

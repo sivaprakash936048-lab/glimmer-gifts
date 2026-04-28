@@ -38,7 +38,7 @@ export const ProductDialog = ({ product, onClose }: Props) => {
               <h2 className="mt-2 font-serif text-4xl text-foreground">{product.name}</h2>
               <p className="mt-1 text-sm text-muted-foreground italic">{product.tagline}</p>
 
-              <div className="mt-6 font-serif text-3xl text-foreground">${product.price}</div>
+              <div className="mt-6 font-serif text-3xl text-foreground">₹{product.price.toLocaleString("en-IN")}</div>
               <p className="mt-5 text-sm leading-relaxed text-foreground/80">{product.description}</p>
 
               <dl className="mt-6 grid grid-cols-2 gap-4 text-xs">
@@ -71,7 +71,7 @@ export const ProductDialog = ({ product, onClose }: Props) => {
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-foreground py-3.5 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5"
                 >
                   <ShoppingBag className="h-4 w-4" />
-                  Add to bag · ${product.price * qty}
+                  Add to bag · ₹{(product.price * qty).toLocaleString("en-IN")}
                 </button>
               </div>
             </div>
