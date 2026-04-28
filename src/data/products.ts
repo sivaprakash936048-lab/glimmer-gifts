@@ -1,3 +1,9 @@
+import braceletSilver from "@/assets/products/bracelet-silver.jpg";
+import braceletGold from "@/assets/products/bracelet-gold.jpg";
+import penBlackGold from "@/assets/products/pen-black-gold.webp";
+import keychainNameplate from "@/assets/products/keychain-nameplate.jpg";
+import keychainCouple from "@/assets/products/keychain-couple.jpg";
+
 export type Category = "bracelets" | "pens" | "keychains";
 
 export interface Product {
@@ -6,101 +12,67 @@ export interface Product {
   tagline: string;
   category: Category;
   price: number;
-  colors: string[];      // hex used in 3D + swatches
+  colors: string[];      // hex used for swatches
   material: string;
   description: string;
+  image: string;         // real product photo, animated in 3D
 }
 
 export const products: Product[] = [
   {
-    id: "br-aurora",
-    name: "Aurora Bracelet",
-    tagline: "Iridescent pearl chain",
+    id: "br-silver",
+    name: "Silver Steel Bangle",
+    tagline: "Brushed minimalist cuff",
     category: "bracelets",
     price: 48,
-    colors: ["#f3c6dc", "#c9a0dc", "#fde6f0"],
-    material: "Freshwater pearl · 14k gold-plate",
-    description: "A delicate pearl bracelet that catches light like dawn — soft pinks fading into lavender.",
+    colors: ["#d9dce0", "#a8acb1", "#ffffff"],
+    material: "Brushed stainless steel",
+    description: "A clean, polished bangle with a soft brushed finish — quiet luxury for everyday wear.",
+    image: braceletSilver,
   },
   {
-    id: "br-petal",
-    name: "Petal Cuff",
-    tagline: "Hand-forged blossom band",
+    id: "br-gold",
+    name: "Gilded Halo Bangle",
+    tagline: "High-polish gold band",
     category: "bracelets",
     price: 62,
-    colors: ["#e8c5d0", "#9b72cf", "#ffffff"],
-    material: "Brushed silver · Enamel inlay",
-    description: "Sculpted petals wrap the wrist in a quiet, modern cuff inspired by spring gardens.",
+    colors: ["#d4af37", "#f0d78c", "#8b6f1e"],
+    material: "18k gold-plated steel",
+    description: "A mirror-finish gold bangle with a confident weight — catches every flicker of light.",
+    image: braceletGold,
   },
   {
-    id: "br-lumen",
-    name: "Lumen Bangle",
-    tagline: "Polished crystal halo",
-    category: "bracelets",
-    price: 56,
-    colors: ["#f8e8ee", "#c9a0dc", "#b48cd9"],
-    material: "Crystal · Rose gold",
-    description: "A faceted crystal bangle that throws tiny rainbows across every gesture.",
-  },
-  {
-    id: "pn-sonnet",
-    name: "Sonnet Pen",
-    tagline: "Weighted brass writer",
+    id: "pn-noir",
+    name: "Noir & Gold Pen",
+    tagline: "Matte black executive pen",
     category: "pens",
     price: 38,
-    colors: ["#c9a0dc", "#9b72cf", "#f8e8ee"],
-    material: "Solid brass · Soft-touch lacquer",
-    description: "A balanced rollerball with a gentle hex grip — built for long letters and loved notes.",
+    colors: ["#0d0d0d", "#d4af37", "#f0d78c"],
+    material: "Matte lacquer · Gold trim",
+    description: "A weighted matte-black ballpoint with gold accents — built for boardrooms and love letters alike.",
+    image: penBlackGold,
   },
   {
-    id: "pn-ribbon",
-    name: "Ribbon Fountain",
-    tagline: "Marbled resin fountain pen",
-    category: "pens",
-    price: 74,
-    colors: ["#e8c5d0", "#f8e8ee", "#9b72cf"],
-    material: "Hand-poured resin · Iridium nib",
-    description: "Each barrel is poured by hand — no two ribbons of color ever match.",
-  },
-  {
-    id: "pn-mira",
-    name: "Mira Mini",
-    tagline: "Pocket-sized everyday pen",
-    category: "pens",
-    price: 24,
-    colors: ["#9b72cf", "#fde6f0", "#c9a0dc"],
-    material: "Anodized aluminum",
-    description: "A whisper-light everyday pen that clips neatly to any notebook.",
-  },
-  {
-    id: "kc-clover",
-    name: "Clover Charm",
-    tagline: "Swinging four-leaf keyring",
+    id: "kc-nameplate",
+    name: "Personalised Nameplate",
+    tagline: "Engraved metal keyring",
     category: "keychains",
     price: 22,
-    colors: ["#c9a0dc", "#e8c5d0", "#9b72cf"],
-    material: "Enamel · Antique brass",
-    description: "A tiny lucky charm that swings cheerfully with every step.",
+    colors: ["#c0c4c8", "#2a2a2a", "#ffffff"],
+    material: "Polished zinc alloy",
+    description: "A sleek rectangular keyring engraved with your name — a personal everyday companion.",
+    image: keychainNameplate,
   },
   {
-    id: "kc-orbit",
-    name: "Orbit Loop",
-    tagline: "Sculpted ring carabiner",
+    id: "kc-couple",
+    name: "I Know · I Love You",
+    tagline: "Couple's matching set",
     category: "keychains",
     price: 28,
-    colors: ["#9b72cf", "#c9a0dc", "#f8e8ee"],
-    material: "Machined aluminum",
-    description: "A modern ring you'll actually want to show off — clips smartly to any bag.",
-  },
-  {
-    id: "kc-bloom",
-    name: "Bloom Tag",
-    tagline: "Pressed-flower acrylic charm",
-    category: "keychains",
-    price: 18,
-    colors: ["#fde6f0", "#e8c5d0", "#c9a0dc"],
-    material: "Resin · Real pressed petals",
-    description: "Real petals pressed into clear resin — a pocket of spring, year-round.",
+    colors: ["#b8bcc0", "#8a8e92", "#ffffff"],
+    material: "Brushed stainless steel",
+    description: "A pair of engraved bar keychains — a quiet promise carried in two pockets.",
+    image: keychainCouple,
   },
 ];
 
