@@ -1,0 +1,44 @@
+export const Footer = () => {
+  return (
+    <footer className="relative border-t border-border bg-secondary/30">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-12 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <div className="font-serif text-3xl text-foreground">petal<span className="text-primary">.</span></div>
+            <p className="mt-3 max-w-sm text-sm text-muted-foreground leading-relaxed">
+              A small, 3D-first gift boutique. Bracelets, pens and keychains worth keeping.
+            </p>
+            <form className="mt-6 flex max-w-sm gap-2" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Your email for soft launches"
+                className="flex-1 rounded-full border border-border bg-card px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+              />
+              <button className="rounded-full bg-foreground px-5 py-2.5 text-sm text-background hover:opacity-90">Join</button>
+            </form>
+          </div>
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Shop</h4>
+            <ul className="mt-4 space-y-2 text-sm text-foreground/80">
+              <li><a href="#bracelets" className="story-link">Bracelets</a></li>
+              <li><a href="#pens" className="story-link">Pens</a></li>
+              <li><a href="#keychains" className="story-link">Keychains</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Studio</h4>
+            <ul className="mt-4 space-y-2 text-sm text-foreground/80">
+              <li><a href="#story" className="story-link">Our craft</a></li>
+              <li><a href="#" className="story-link">Wrap & shipping</a></li>
+              <li><a href="#" className="story-link">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+          <span>© {new Date().getFullYear()} Petal Studio · Brooklyn, NY</span>
+          <span className="italic">Wrapped with care.</span>
+        </div>
+      </div>
+    </footer>
+  );
+};
