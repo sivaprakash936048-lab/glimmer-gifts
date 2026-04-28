@@ -1,15 +1,20 @@
 import { ShoppingBag, Search, User } from "lucide-react";
 import { useCart } from "@/store/cart";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 export const Navbar = () => {
   const { count, setOpen } = useCart();
   return (
     <header className="fixed top-0 inset-x-0 z-40">
       <div className="mx-auto max-w-7xl px-6 py-4">
-        <nav className="glass shadow-soft rounded-full px-5 py-3 flex items-center justify-between">
-          <a href="#top" className="font-serif text-2xl tracking-tight text-foreground">
-            petal<span className="text-primary">.</span>
+        <nav className="glass shadow-soft rounded-full pl-3 pr-5 py-2 flex items-center justify-between">
+          <a href="#top" className="flex items-center gap-2.5" aria-label="Swapn's Gift World — home">
+            <img src={logo} alt="Swapn's Gift World logo" className="h-11 w-11 object-contain" />
+            <span className="hidden sm:flex flex-col leading-none">
+              <span className="font-serif text-lg text-foreground">Swapn's <span className="text-primary">Gift</span></span>
+              <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground mt-0.5">world</span>
+            </span>
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm">
             <a href="#shop" className="story-link text-muted-foreground hover:text-foreground transition-colors">Shop</a>

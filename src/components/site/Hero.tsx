@@ -1,5 +1,6 @@
 import { HeroScene } from "@/components/three/HeroScene";
 import { ArrowRight, Sparkles } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export const Hero = () => {
   return (
@@ -11,9 +12,10 @@ export const Hero = () => {
       <div className="relative mx-auto max-w-7xl px-6 pt-40 pb-20 md:pt-48">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div className="animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground shadow-soft">
+            <div className="inline-flex items-center gap-2.5 rounded-full glass px-3 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground shadow-soft">
+              <img src={logo} alt="" className="h-5 w-5 object-contain" />
+              <span>Swapn's Gift World · est. 2026</span>
               <Sparkles className="h-3.5 w-3.5 text-primary" />
-              A 3D gift boutique
             </div>
             <h1 className="mt-6 font-serif text-5xl leading-[0.95] text-foreground text-balance md:text-7xl lg:text-8xl">
               Tiny gifts,<br />
