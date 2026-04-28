@@ -43,7 +43,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <span>© {new Date().getFullYear()} Petal Studio · Brooklyn, NY</span>
+          <span>© {new Date().getFullYear()} Swapn's Gift World · Wrapped with love</span>
           <span className="italic">Wrapped with care.</span>
         </div>
       </div>
