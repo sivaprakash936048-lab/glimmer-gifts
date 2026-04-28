@@ -21,6 +21,7 @@ export const ProductCard = ({ product, onOpen, onAdd }: Props) => {
         <ProductCanvas
           category={product.category}
           colors={product.colors}
+          image={product.image}
           className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
         />
         <span className="absolute left-4 top-4 rounded-full bg-background/70 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">

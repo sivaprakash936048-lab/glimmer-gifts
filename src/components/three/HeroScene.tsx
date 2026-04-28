@@ -2,6 +2,11 @@ import { Canvas } from "@react-three/fiber";
 import { Environment, Float, ContactShadows } from "@react-three/drei";
 import { Suspense } from "react";
 import { ProductMesh } from "./ProductMesh";
+import { products } from "@/data/products";
+
+const heroBracelet = products.find(p => p.category === "bracelets")!;
+const heroPen = products.find(p => p.category === "pens")!;
+const heroKeychain = products.find(p => p.category === "keychains")!;
 
 export const HeroScene = ({ className }: { className?: string }) => {
   return (
@@ -12,13 +17,13 @@ export const HeroScene = ({ className }: { className?: string }) => {
         <directionalLight position={[-4, 2, -2]} intensity={0.6} color="#c9a0dc" />
         <Suspense fallback={null}>
           <group position={[-2.2, 0.4, 0]} scale={0.85}>
-            <ProductMesh category="bracelets" colors={["#f3c6dc", "#c9a0dc", "#fde6f0"]} />
+            <ProductMesh category="bracelets" colors={heroBracelet.colors} image={heroBracelet.image} />
           </group>
           <group position={[0, -0.2, 0.4]} scale={1}>
-            <ProductMesh category="pens" colors={["#c9a0dc", "#9b72cf", "#f8e8ee"]} />
+            <ProductMesh category="pens" colors={heroPen.colors} image={heroPen.image} />
           </group>
           <group position={[2.3, 0.5, -0.2]} scale={0.9}>
-            <ProductMesh category="keychains" colors={["#c9a0dc", "#e8c5d0", "#9b72cf"]} />
+            <ProductMesh category="keychains" colors={heroKeychain.colors} image={heroKeychain.image} />
           </group>
           <Float speed={2} rotationIntensity={0.4} floatIntensity={1.2}>
             <mesh position={[-3.4, 1.6, -1]}>
