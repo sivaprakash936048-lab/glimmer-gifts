@@ -1,10 +1,29 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useCart } from "@/store/cart";
 import { ProductCanvas } from "@/components/three/ProductCanvas";
-import { Minus, Plus, X, ShoppingBag } from "lucide-react";
+import { Minus, Plus, X, ShoppingBag, Check, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export const CartDrawer = () => {
   const { items, open, setOpen, setQty, remove, total, clear, count } = useCart();
+  const [processing, setProcessing] = useState(false);
+  const [confirmed, setConfirmed] = useState<{ orderId: string; total: number } | null>(null);
+
+  const handleCheckout = () => {
+    if (items.length === 0) return;
+    setProcessing(true);
+    // Simulated order placement (frontend-only demo)
+    setTimeout(() => {
+      const orderId = "SGW-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+      setConfirmed({ orderId, total });
+      setProcessing(false);
+      clear();
+      setOpen(false);
+      toast.success("Order placed!", { description: `Confirmation #${orderId}` });
+    }, 900);
+  };
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -66,8 +85,16 @@ export const CartDrawer = () => {
               <span className="font-serif text-2xl text-foreground">₹{total.toLocaleString("en-IN")}</span>
             </div>
             <p className="text-xs text-muted-foreground">Free gift wrap & shipping over ₹2,000.</p>
-            <button className="w-full rounded-full bg-foreground py-3.5 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5">
-              Checkout
+            <button
+              onClick={handleCheckout}
+              disabled={processing}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-foreground py-3.5 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0"
+            >
+              {processing ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Placing order…</>
+              ) : (
+                <>Checkout · ₹{total.toLocaleString("en-IN")}</>
+              )}
             </button>
             <button onClick={clear} className="w-full text-xs text-muted-foreground hover:text-foreground">
               Clear bag
@@ -75,6 +102,37 @@ export const CartDrawer = () => {
           </div>
         )}
       </SheetContent>
+
+      <Dialog open={!!confirmed} onOpenChange={(o) => !o && setConfirmed(null)}>
+        <DialogContent className="max-w-md rounded-[2rem] border-0 bg-background/95 backdrop-blur-xl shadow-float">
+          <DialogHeader>
+            <div className="mx-auto mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
+              <Check className="h-7 w-7" />
+            </div>
+            <DialogTitle className="text-center font-serif text-3xl text-foreground">Thank you!</DialogTitle>
+            <DialogDescription className="text-center text-sm text-muted-foreground">
+              Your gift is being lovingly wrapped.
+            </DialogDescription>
+          </DialogHeader>
+          {confirmed && (
+            <div className="mt-2 space-y-3 text-center">
+              <div className="rounded-2xl glass p-4 shadow-soft">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Order</p>
+                <p className="mt-1 font-serif text-xl text-foreground">{confirmed.orderId}</p>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Total paid · <span className="font-serif text-foreground">₹{confirmed.total.toLocaleString("en-IN")}</span>
+              </p>
+              <button
+                onClick={() => setConfirmed(null)}
+                className="mt-2 w-full rounded-full bg-foreground py-3 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5"
+              >
+                Continue browsing
+              </button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </Sheet>
   );
 };
