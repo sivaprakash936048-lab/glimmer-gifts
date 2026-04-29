@@ -37,10 +37,14 @@ export const ProductMesh = ({ category, colors, image, spin = true, scale = 1 }:
     return ar >= 1 ? { w: base, h: base / ar } : { w: base * ar, h: base };
   }, [tex]);
 
-  useFrame((_, dt) => {
+  useFrame(() => {
     if (!group.current) return;
-    if (spin) group.current.rotation.y += dt * 0.6;
-    group.current.rotation.x = Math.sin(performance.now() * 0.0006) * 0.18;
+    const t = performance.now() * 0.001;
+    if (spin) {
+      // Gentle oscillating tilt — never edge-on, photo always readable
+      group.current.rotation.y = Math.sin(t * 0.8) * 0.35;
+    }
+    group.current.rotation.x = Math.sin(t * 0.6) * 0.12;
   });
 
   // Subtle accent halo color from product palette
