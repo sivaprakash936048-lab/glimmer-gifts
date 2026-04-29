@@ -73,7 +73,7 @@ export const Shop = () => {
           {filters.map(f => (
             <button
               key={f}
-              onClick={() => setActive(f)}
+              onClick={() => handleFilter(f)}
               className={`rounded-full px-5 py-2 text-sm transition-all ${
                 active === f
                   ? "bg-foreground text-background shadow-soft"
@@ -85,8 +85,10 @@ export const Shop = () => {
           ))}
         </div>
 
-        {/* Category anchor sections */}
-        <div id="bracelets" /><div id="pens" /><div id="keychains" />
+        {/* Anchor target so navbar links scroll to the product grid */}
+        <div ref={gridTopRef} id="bracelets" />
+        <div id="pens" />
+        <div id="keychains" />
 
         <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((p, i) => (
