@@ -55,16 +55,16 @@ export const ProductMesh = ({ category, colors, image, spin = true, scale = 1 }:
           <meshStandardMaterial color={halo} roughness={0.6} metalness={0.1} transparent opacity={0.18} />
         </mesh>
 
-        {/* Front face — the product photo */}
+        {/* Product photo — visible from BOTH sides so back never looks blank */}
         <mesh>
           <planeGeometry args={[w, h]} />
-          <meshStandardMaterial map={tex} roughness={0.45} metalness={0.15} transparent />
-        </mesh>
-
-        {/* Back face — soft tinted card so the rotation reveals depth, not a void */}
-        <mesh rotation={[0, Math.PI, 0]} position={[0, 0, -0.001]}>
-          <planeGeometry args={[w, h]} />
-          <meshStandardMaterial color={halo} roughness={0.5} metalness={0.2} />
+          <meshStandardMaterial
+            map={tex}
+            roughness={0.45}
+            metalness={0.15}
+            transparent
+            side={THREE.DoubleSide}
+          />
         </mesh>
       </group>
     </Float>
