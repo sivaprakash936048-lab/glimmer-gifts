@@ -1,8 +1,18 @@
 import braceletSilver from "@/assets/products/bracelet-silver.jpg";
 import braceletGold from "@/assets/products/bracelet-gold.jpg";
+import braceletRose from "@/assets/products/bracelet-rose.jpg";
+import braceletDuo from "@/assets/products/bracelet-duo.jpg";
+import braceletPearl from "@/assets/products/bracelet-pearl.jpg";
 import penBlackGold from "@/assets/products/pen-black-gold.webp";
+import penRosewood from "@/assets/products/pen-rosewood.jpg";
+import penPearlWhite from "@/assets/products/pen-pearl-white.jpg";
+import penTwinSet from "@/assets/products/pen-twin-set.jpg";
+import penFountainBlue from "@/assets/products/pen-fountain-blue.jpg";
 import keychainNameplate from "@/assets/products/keychain-nameplate.jpg";
 import keychainCouple from "@/assets/products/keychain-couple.jpg";
+import keychainHeart from "@/assets/products/keychain-heart.jpg";
+import keychainLeather from "@/assets/products/keychain-leather.jpg";
+import keychainLocket from "@/assets/products/keychain-locket.jpg";
 
 export type Category = "bracelets" | "pens" | "keychains";
 
@@ -44,14 +54,14 @@ export const products: Product[] = [
   },
   {
     id: "br-rose",
-    name: "Rose Gold Charm Cuff",
-    tagline: "Dainty rose-gold charm",
+    name: "Rose Gold Charm Chain",
+    tagline: "Dainty rose-gold heart",
     category: "bracelets",
     price: 1749,
     colors: ["#e8b4a0", "#f4cfc0", "#b87a64"],
     material: "Rose gold-plated brass",
-    description: "A delicate cuff crowned with a tiny heart charm — soft romance for every wrist.",
-    image: braceletGold,
+    description: "A delicate chain crowned with a tiny heart charm — soft romance for every wrist.",
+    image: braceletRose,
   },
   {
     id: "br-duo",
@@ -62,7 +72,7 @@ export const products: Product[] = [
     colors: ["#d9dce0", "#d4af37", "#ffffff"],
     material: "Mixed metals · gift box",
     description: "A pair of complementary bangles meant to be stacked — modern minimalism, doubled.",
-    image: braceletSilver,
+    image: braceletDuo,
   },
   {
     id: "br-beaded",
@@ -73,7 +83,7 @@ export const products: Product[] = [
     colors: ["#fdfcf7", "#e9e3d3", "#c0b39a"],
     material: "Freshwater pearls · silk",
     description: "Hand-knotted freshwater pearls on silk — old-world elegance, gently reimagined.",
-    image: braceletGold,
+    image: braceletPearl,
   },
 
   // ───────── Pens ─────────
@@ -97,7 +107,7 @@ export const products: Product[] = [
     colors: ["#5a2d1a", "#8b4a2b", "#d4af37"],
     material: "Indian rosewood · brass",
     description: "A warm rosewood barrel with brass fittings — a writing instrument that feels like an heirloom.",
-    image: penBlackGold,
+    image: penRosewood,
   },
   {
     id: "pn-pearl",
@@ -108,7 +118,7 @@ export const products: Product[] = [
     colors: ["#fafafa", "#e8e8e8", "#c0c4c8"],
     material: "Pearl lacquer · chrome",
     description: "A soft pearl-white rollerball with chrome accents — clean lines, smooth ink, calm focus.",
-    image: penBlackGold,
+    image: penPearlWhite,
   },
   {
     id: "pn-twin-set",
@@ -119,7 +129,7 @@ export const products: Product[] = [
     colors: ["#0d0d0d", "#e8b4a0", "#d4af37"],
     material: "Lacquer pair · velvet box",
     description: "Two pens — noir and rose — nestled in a velvet gift box. A thoughtful pair for paired lives.",
-    image: penBlackGold,
+    image: penTwinSet,
   },
   {
     id: "pn-fountain",
@@ -130,7 +140,7 @@ export const products: Product[] = [
     colors: ["#0a1530", "#1e2a52", "#d4af37"],
     material: "Resin · iridium nib",
     description: "A deep midnight-blue fountain pen with an iridium nib — for those who love the slow art of writing.",
-    image: penBlackGold,
+    image: penFountainBlue,
   },
 
   // ───────── Keychains ─────────
@@ -165,7 +175,7 @@ export const products: Product[] = [
     colors: ["#e8b4a0", "#d4af37", "#ffffff"],
     material: "Rose gold-plated alloy",
     description: "Two tiny hearts that interlock — a small, hopeful symbol to carry every day.",
-    image: keychainCouple,
+    image: keychainHeart,
   },
   {
     id: "kc-leather",
@@ -176,7 +186,7 @@ export const products: Product[] = [
     colors: ["#6b3a2a", "#d4af37", "#3a2118"],
     material: "Vegan leather · brass",
     description: "A supple leather tag with a brass loop — quietly handsome, ages beautifully with use.",
-    image: keychainNameplate,
+    image: keychainLeather,
   },
   {
     id: "kc-photo",
@@ -187,7 +197,7 @@ export const products: Product[] = [
     colors: ["#d4af37", "#f0d78c", "#ffffff"],
     material: "Gold-plated locket",
     description: "A tiny locket keyring that opens to a photo of someone you love — pocket-sized affection.",
-    image: keychainCouple,
+    image: keychainLocket,
   },
 ];
 
