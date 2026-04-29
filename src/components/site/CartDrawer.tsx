@@ -1,10 +1,29 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useCart } from "@/store/cart";
 import { ProductCanvas } from "@/components/three/ProductCanvas";
-import { Minus, Plus, X, ShoppingBag } from "lucide-react";
+import { Minus, Plus, X, ShoppingBag, Check, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export const CartDrawer = () => {
   const { items, open, setOpen, setQty, remove, total, clear, count } = useCart();
+  const [processing, setProcessing] = useState(false);
+  const [confirmed, setConfirmed] = useState<{ orderId: string; total: number } | null>(null);
+
+  const handleCheckout = () => {
+    if (items.length === 0) return;
+    setProcessing(true);
+    // Simulated order placement (frontend-only demo)
+    setTimeout(() => {
+      const orderId = "SGW-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+      setConfirmed({ orderId, total });
+      setProcessing(false);
+      clear();
+      setOpen(false);
+      toast.success("Order placed!", { description: `Confirmation #${orderId}` });
+    }, 900);
+  };
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -66,8 +85,16 @@ export const CartDrawer = () => {
               <span className="font-serif text-2xl text-foreground">₹{total.toLocaleString("en-IN")}</span>
             </div>
             <p className="text-xs text-muted-foreground">Free gift wrap & shipping over ₹2,000.</p>
-            <button className="w-full rounded-full bg-foreground py-3.5 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5">
-              Checkout
+            <button
+              onClick={handleCheckout}
+              disabled={processing}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-foreground py-3.5 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0"
+            >
+              {processing ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Placing order…</>
+              ) : (
+                <>Checkout · ₹{total.toLocaleString("en-IN")}</>
+              )}
             </button>
             <button onClick={clear} className="w-full text-xs text-muted-foreground hover:text-foreground">
               Clear bag
