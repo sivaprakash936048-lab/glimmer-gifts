@@ -3,16 +3,25 @@ import braceletGold from "@/assets/products/bracelet-gold.jpg";
 import braceletRose from "@/assets/products/bracelet-rose.jpg";
 import braceletDuo from "@/assets/products/bracelet-duo.jpg";
 import braceletPearl from "@/assets/products/bracelet-pearl.jpg";
+import braceletEvilEye from "@/assets/products/bracelet-evileye.jpg";
+import braceletLeatherBr from "@/assets/products/bracelet-leather.jpg";
+import braceletCharm from "@/assets/products/bracelet-charm.jpg";
 import penBlackGold from "@/assets/products/pen-black-gold.webp";
 import penRosewood from "@/assets/products/pen-rosewood.jpg";
 import penPearlWhite from "@/assets/products/pen-pearl-white.jpg";
 import penTwinSet from "@/assets/products/pen-twin-set.jpg";
 import penFountainBlue from "@/assets/products/pen-fountain-blue.jpg";
+import penEmerald from "@/assets/products/pen-emerald.jpg";
+import penBamboo from "@/assets/products/pen-bamboo.jpg";
+import penBlush from "@/assets/products/pen-blush.jpg";
 import keychainNameplate from "@/assets/products/keychain-nameplate.jpg";
 import keychainCouple from "@/assets/products/keychain-couple.jpg";
 import keychainHeart from "@/assets/products/keychain-heart.jpg";
 import keychainLeather from "@/assets/products/keychain-leather.jpg";
 import keychainLocket from "@/assets/products/keychain-locket.jpg";
+import keychainWoodLetter from "@/assets/products/keychain-wood-letter.jpg";
+import keychainBear from "@/assets/products/keychain-bear.jpg";
+import keychainCar from "@/assets/products/keychain-car.jpg";
 
 export type Category = "bracelets" | "pens" | "keychains";
 
