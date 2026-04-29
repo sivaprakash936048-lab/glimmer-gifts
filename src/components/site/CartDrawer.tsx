@@ -102,6 +102,37 @@ export const CartDrawer = () => {
           </div>
         )}
       </SheetContent>
+
+      <Dialog open={!!confirmed} onOpenChange={(o) => !o && setConfirmed(null)}>
+        <DialogContent className="max-w-md rounded-[2rem] border-0 bg-background/95 backdrop-blur-xl shadow-float">
+          <DialogHeader>
+            <div className="mx-auto mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
+              <Check className="h-7 w-7" />
+            </div>
+            <DialogTitle className="text-center font-serif text-3xl text-foreground">Thank you!</DialogTitle>
+            <DialogDescription className="text-center text-sm text-muted-foreground">
+              Your gift is being lovingly wrapped.
+            </DialogDescription>
+          </DialogHeader>
+          {confirmed && (
+            <div className="mt-2 space-y-3 text-center">
+              <div className="rounded-2xl glass p-4 shadow-soft">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Order</p>
+                <p className="mt-1 font-serif text-xl text-foreground">{confirmed.orderId}</p>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Total paid · <span className="font-serif text-foreground">₹{confirmed.total.toLocaleString("en-IN")}</span>
+              </p>
+              <button
+                onClick={() => setConfirmed(null)}
+                className="mt-2 w-full rounded-full bg-foreground py-3 text-sm text-background shadow-float transition-transform hover:-translate-y-0.5"
+              >
+                Continue browsing
+              </button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </Sheet>
   );
 };
