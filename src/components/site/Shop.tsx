@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Category, Product, categoryLabel, products } from "@/data/products";
 import { ProductCard } from "./ProductCard";
 import { ProductDialog } from "./ProductDialog";
@@ -6,12 +6,38 @@ import { useCart } from "@/store/cart";
 import { Search } from "lucide-react";
 
 const filters: ("all" | Category)[] = ["all", "bracelets", "pens", "keychains"];
+const categorySet = new Set<Category>(["bracelets", "pens", "keychains"]);
 
 export const Shop = () => {
   const [active, setActive] = useState<"all" | Category>("all");
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState<Product | null>(null);
   const { add } = useCart();
+  const gridTopRef = useRef<HTMLDivElement>(null);
+
+  // Sync category from URL hash (navbar links: #bracelets, #pens, #keychains)
+  useEffect(() => {
+    const sync = () => {
+      const h = window.location.hash.replace("#", "");
+      if (categorySet.has(h as Category)) setActive(h as Category);
+      else if (h === "shop") setActive("all");
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+
+  // Smooth-scroll to grid when filter changes
+  useEffect(() => {
+    if (active !== "all") {
+      gridTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [active]);
+
+  const handleFilter = (f: "all" | Category) => {
+    setActive(f);
+    window.history.replaceState(null, "", f === "all" ? "#shop" : `#${f}`);
+  };
 
   const list = useMemo(() => {
     return products.filter(p => {
