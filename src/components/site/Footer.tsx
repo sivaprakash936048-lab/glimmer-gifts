@@ -37,8 +37,8 @@ export const Footer = () => {
             <h4 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Studio</h4>
             <ul className="mt-4 space-y-2 text-sm text-foreground/80">
               <li><a href="#story" className="story-link">Our craft</a></li>
-              <li><a href="#" className="story-link">Wrap & shipping</a></li>
-              <li><a href="#" className="story-link">Contact</a></li>
+              <li><a href="/track" className="story-link">Track an order</a></li>
+              <li><a href="/admin" className="story-link">Admin dashboard</a></li>
             </ul>
           </div>
         </div>
